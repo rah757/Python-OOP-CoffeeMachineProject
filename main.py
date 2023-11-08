@@ -18,15 +18,15 @@ while stillInMachine == True:
         print("Turning off machine..")
         stillInMachine = False
     else:
-        drink = menu.find_drink(item)
+        drink = menu.find_drink(item)     # gives output like drink = MenuItem(name=drink, water=200, milk=150, coffee=24, cost=2.5) etc - attributes are defined this way
         if drink != None:
             print(f"You have ordered a {drink.name}")
 
-            if coffeeMaker.is_resource_sufficient(drink) == True:
+            if coffeeMaker.is_resource_sufficient(drink) == True:     # returns true or false
                 print(f"The {drink.name} costs {drink.cost}$")
                 moneyMachine.make_payment(drink.cost)
                 coffeeMaker.make_coffee(drink)
         else:
             print("Item does not exist.")
-        if input("Would you like to exit machine? If so, press 'n' : ") == 'n':
+        if input("Would you like to exit machine? If so, press 'n' : ") == 'n':         
             stillInMachine = False
